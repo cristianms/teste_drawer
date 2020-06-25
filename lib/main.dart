@@ -1,7 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:testedrawer/pages/home_drawer.dart';
 import 'package:testedrawer/pages/page_1.dart';
 import 'package:testedrawer/pages/page_2.dart';
-import 'package:testedrawer/pages/page_drawer.dart';
 import 'package:testedrawer/pages/page_home.dart';
 
 void main() {
@@ -25,14 +26,6 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key}) : super(key: key);
 
-  final pages = [
-    PageHome(),
-    Page1(),
-    Page2()
-  ];
-
-  int pageShow = 0;
-
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -43,39 +36,32 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.pages[widget.pageShow].titulo),
+        title: Text("Tipos de Menus"),
       ),
-      drawer: Drawer(
-        child: ListView(
+      body: Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            DrawerHeader(child: null),
-            ListTile(
-              leading: Icon(Icons.person),
-              title: Text("Item 1"),
-              onTap: () {
-                print("11111111");
-                setState(() {
-                  widget.pageShow = 1;
-                });
-                Navigator.pop(context);
+            OutlineButton(
+              child: Text("Modelo 1"),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (context) => HomeDrawer()
+                ));
               },
             ),
-            ListTile(
-              leading: Icon(Icons.person),
-              title: Text("Item 2"),
-              onTap: () {
-                print("2222222");
-                setState(() {
-                  widget.pageShow = 2;
-                });
-                Navigator.pop(context);
+            OutlineButton(
+              child: Text("Modelo 2"),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => HomeDrawer()
+                ));
               },
             ),
           ],
         ),
-      ),
-//      body: PageHome()
-      body: widget.pages[widget.pageShow]
+      )
     );
   }
 }
