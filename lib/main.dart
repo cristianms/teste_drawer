@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:testedrawer/pages/home_drawer.dart';
+import 'package:testedrawer/pages/home_tab_bar.dart';
 import 'package:testedrawer/pages/page_1.dart';
 import 'package:testedrawer/pages/page_2.dart';
 import 'package:testedrawer/pages/page_home.dart';
@@ -55,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text("Modelo 2"),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(
-                    builder: (context) => HomeDrawer()
+                    builder: (context) => HomeTabBar()
                 ));
               },
             ),
