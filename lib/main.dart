@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:testedrawer/pages/home_bottom_navigation_bar.dart';
 import 'package:testedrawer/pages/home_drawer.dart';
 import 'package:testedrawer/pages/home_tab_bar.dart';
 import 'package:testedrawer/pages/page_1.dart';
@@ -45,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             OutlineButton(
-              child: Text("Modelo 1"),
+              child: Text("Modelo 1 - Drawer"),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(
                   builder: (context) => HomeDrawer()
@@ -53,10 +54,18 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
             OutlineButton(
-              child: Text("Modelo 2"),
+              child: Text("Modelo 2 - Tab Bar"),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(
                     builder: (context) => HomeTabBar()
+                ));
+              },
+            ),
+            OutlineButton(
+              child: Text("Modelo 3 - Bottom Navigation Bar"),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => HomeBottomNavigationBar()
                 ));
               },
             ),
