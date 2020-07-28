@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:testedrawer/models/app_model.dart';
 import 'package:testedrawer/pages/home_bottom_navigation_bar.dart';
 import 'package:testedrawer/pages/home_drawer.dart';
 import 'package:testedrawer/pages/home_tab_bar.dart';
-import 'package:testedrawer/pages/page_1.dart';
-import 'package:testedrawer/pages/page_2.dart';
-import 'package:testedrawer/pages/page_home.dart';
+import 'package:testedrawer/pages/page_3.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,13 +14,20 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+    return MultiProvider(
+      providers: [
+        Provider<AppModel>(
+          create: (context) => AppModel(),
+        )
+      ],
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        home: MyHomePage(),
       ),
-      home: MyHomePage(),
     );
   }
 }
@@ -66,6 +73,14 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(
                     builder: (context) => HomeBottomNavigationBar()
+                ));
+              },
+            ),
+            OutlineButton(
+              child: Text("Teste 4 - Provider"),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => Page3()
                 ));
               },
             ),
